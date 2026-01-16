@@ -333,6 +333,8 @@ header.masthead .subheading {
     right: 20px;
     z-index: 1000;
     font-family: 'Montserrat', sans-serif;
+    text-align: left !important;
+    /* Force left alignment to override global mobile styles */
 }
 
 #chat-toggle-btn {
@@ -405,6 +407,8 @@ header.masthead .subheading {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: flex-start !important;
+    /* Force children to left by default */
 }
 
 .message {
@@ -412,11 +416,13 @@ header.masthead .subheading {
     padding: 10px;
     border-radius: 10px;
     font-size: 0.9rem;
+    text-align: left;
+    /* Reset alignment for bubble content */
 }
 
 .bot-message {
     background-color: #fff;
-    align-self: flex-start;
+    align-self: flex-start !important;
     border-bottom-left-radius: 0;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     color: var(--brand-teal);
@@ -426,7 +432,7 @@ header.masthead .subheading {
 .user-message {
     background-color: var(--brand-sage);
     color: #fff;
-    align-self: flex-end;
+    align-self: flex-end !important;
     border-bottom-right-radius: 0;
 }
 
