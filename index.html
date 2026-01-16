@@ -351,40 +351,35 @@
                 </div>
                 <div class="modal-body p-3 bg-light"> <!-- Reduced padding -->
                     <form id="enquiryForm">
-                        <div class="row g-2 mb-2"> <!-- Tighter grid -->
-                            <div class="col-md-6">
-                                <label for="fullName" class="form-label small text-uppercase fw-bold mb-1">Full
-                                    Name</label>
-                                <input type="text" class="form-control py-1" id="fullName" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="emailAddr" class="form-label small text-uppercase fw-bold mb-1">Email
-                                    Address</label>
-                                <input type="email" class="form-control py-1" id="emailAddr" required>
-                            </div>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label small text-uppercase fw-bold mb-1">Full Name</label>
+                            <input type="text" class="form-control py-1" id="fullName" required>
                         </div>
-                        <div class="row g-2 mb-2">
-                            <div class="col-md-6">
-                                <label for="phoneNum" class="form-label small text-uppercase fw-bold mb-1">Phone
-                                    Number</label>
-                                <input type="tel" class="form-control py-1" id="phoneNum" pattern="[0-9+\(\) \-]+"
-                                    title="Please enter a valid phone number"
-                                    oninput="this.value = this.value.replace(/[^0-9+\(\) \-]/g, '')" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="treatmentType"
-                                    class="form-label small text-uppercase fw-bold mb-1">Treatment</label>
-                                <select class="form-select py-1" id="treatmentType">
-                                    <option value="" selected disabled>Select...</option>
-                                    <option value="composite-bonding">Composite Bonding</option>
-                                    <option value="teeth-whitening">Professional Whitening</option>
-                                    <option value="smile-makeover">Smile Makeover</option>
-                                    <option value="general-dentistry">General Dentistry</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
+                        <div class="mb-3">
+                            <label for="emailAddr" class="form-label small text-uppercase fw-bold mb-1">Email
+                                Address</label>
+                            <input type="email" class="form-control py-1" id="emailAddr" required>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-3">
+                            <label for="phoneNum" class="form-label small text-uppercase fw-bold mb-1">Phone
+                                Number</label>
+                            <input type="tel" class="form-control py-1" id="phoneNum" pattern="[0-9+\(\) \-]+"
+                                title="Please enter a valid phone number"
+                                oninput="this.value = this.value.replace(/[^0-9+\(\) \-]/g, '')" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="treatmentType"
+                                class="form-label small text-uppercase fw-bold mb-1">Treatment</label>
+                            <select class="form-select py-1" id="treatmentType">
+                                <option value="" selected disabled>Select...</option>
+                                <option value="composite-bonding">Composite Bonding</option>
+                                <option value="teeth-whitening">Professional Whitening</option>
+                                <option value="smile-makeover">Smile Makeover</option>
+                                <option value="general-dentistry">General Dentistry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="message" class="form-label small text-uppercase fw-bold mb-1">Message</label>
                             <textarea class="form-control py-1" id="message" rows="2"></textarea>
                         </div>
