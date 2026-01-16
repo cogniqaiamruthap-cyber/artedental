@@ -102,7 +102,8 @@ h6,
         padding: 4rem 0;
     }
 
-    .section-heading, .section-subheading {
+    .section-heading,
+    .section-subheading {
         text-align: center;
     }
 
@@ -367,7 +368,29 @@ header.masthead .subheading {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* Hidden by default via d-none class, toggled by JS */
+    /* Responsive support */
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 120px);
+}
+
+@media (max-width: 575.98px) {
+    #chatbot-container {
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #chat-window {
+        width: calc(100vw - 30px);
+        height: 500px;
+        max-height: 75vh;
+        bottom: 70px;
+    }
+
+    #chat-toggle-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+    }
 }
 
 .card-header.bg-dark {
