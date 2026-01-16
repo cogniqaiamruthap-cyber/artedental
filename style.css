@@ -1,0 +1,488 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 58px;
+    /* Matches current navbar height */
+}
+
+:root {
+    --brand-sage: #6B715A;
+    --brand-beige: #B7A57A;
+    --brand-teal: #0F1F1E;
+    --neutral-gray: #E3E4E2;
+    --neutral-white: #F7F7F7;
+
+    /* Mapping to logical names */
+    --primary-color: var(--brand-teal);
+    --secondary-color: var(--brand-beige);
+    --accent-color: var(--brand-sage);
+    --body-bg: var(--neutral-white);
+    --text-color: var(--brand-teal);
+    --text-muted: #4a5d5e;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    background-color: var(--body-bg);
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-text {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--brand-teal);
+}
+
+/* Navigation */
+#mainNav {
+    background-color: var(--brand-teal);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    transition: padding-top 0.3s, padding-bottom 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#mainNav .navbar-brand {
+    font-size: 1.75em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+#mainNav .nav-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
+    color: var(--brand-beige) !important;
+    opacity: 1;
+}
+
+#mainNav.navbar-shrink {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background-color: var(--brand-teal);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+#mainNav .navbar-toggler {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+}
+
+#mainNav .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+@media (max-width: 991.98px) {
+    #mainNav {
+        background-color: var(--brand-teal) !important;
+    }
+
+    #mainNav .navbar-collapse {
+        background-color: var(--brand-teal);
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    #mainNav .nav-link {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    #mainNav .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    #mainNav .btn-gold {
+        max-width: 280px;
+        margin-top: 1.5rem;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block;
+    }
+}
+
+/* Buttons */
+.btn-gold {
+    background-color: var(--brand-teal);
+    border-color: var(--brand-teal);
+    color: #fff;
+    border-radius: 8px;
+    /* Added rounding */
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--brand-beige);
+    border-color: var(--brand-beige);
+    color: var(--brand-teal);
+}
+
+.btn-xl {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.btn-outline-light:hover {
+    color: var(--brand-teal);
+    background-color: var(--brand-beige);
+    border-color: var(--brand-beige);
+}
+
+/* Hero Section */
+header.masthead {
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center;
+    color: #fff;
+    /* Overlay with Brand Teal but low opacity/gradient to mix with image */
+    background-image: linear-gradient(rgba(15, 31, 30, 0.6), rgba(15, 31, 30, 0.4)), url('https://www.artedental.co.uk/images/banner-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+header.masthead .site-heading h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+header.masthead .subheading {
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+    header.masthead .site-heading h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Sections */
+.page-section {
+    padding: 6rem 0;
+}
+
+.bg-light {
+    background-color: var(--neutral-white) !important;
+}
+
+.bg-sage {
+    background-color: var(--brand-sage);
+    color: white;
+}
+
+.bg-sage h2,
+.bg-sage h3,
+.bg-sage p {
+    color: white !important;
+}
+
+/* Section Headings */
+.section-heading {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--brand-teal);
+}
+
+.section-subheading {
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    font-family: 'Droid Serif', serif;
+    margin-bottom: 4rem;
+    color: var(--brand-sage);
+}
+
+/* Features */
+.feature-icon {
+    font-size: 3rem;
+    color: var(--brand-sage);
+    /* Was Gold, now Sage? Or Beige. Let's try Sage for uniqueness or Beige for accent. User: "Highlights" -> Beige. */
+    color: var(--brand-beige);
+}
+
+/* Services */
+.service-card {
+    transition: transform 0.3s;
+    background-color: var(--neutral-gray);
+    /* Cards light gray */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-heading {
+    margin: 15px 0;
+    text-transform: none;
+    font-weight: 600;
+    color: var(--brand-teal);
+}
+
+/* Text Colors */
+.text-gold {
+    color: var(--brand-beige) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Testimonials */
+.testimonial-item {
+    max-width: 20rem;
+}
+
+.testimonial-item img {
+    max-width: 12rem;
+    box-shadow: 0px 5px 5px 0px #adb5bd;
+    border: 7px solid #fff;
+    border-radius: 50%;
+}
+
+/* Footer & Dark Areas */
+.bg-dark {
+    background-color: var(--brand-teal) !important;
+}
+
+.footer {
+    background-color: var(--brand-teal);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Chatbot */
+#chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#chat-toggle-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--brand-sage);
+    /* Main brand color for the distinct float */
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#chat-toggle-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--brand-beige);
+    color: var(--brand-teal);
+}
+
+#chat-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Hidden by default via d-none class, toggled by JS */
+}
+
+.card-header.bg-dark {
+    background-color: var(--brand-teal) !important;
+}
+
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.bot-message {
+    background-color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: var(--brand-teal);
+    min-width: 45px;
+}
+
+.user-message {
+    background-color: var(--brand-sage);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
+
+/* Scrollbar styling for chat */
+#chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+#chat-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#chat-send-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+/* Typing Indicator Animation */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.typing-indicator span {
+    width: 6px;
+    height: 6px;
+    background-color: var(--brand-beige);
+    border-radius: 50%;
+    display: inline-block;
+    animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typing {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+        opacity: 0.3;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    padding: 1.5rem 2rem;
+}
+
+.modal-header .btn-close {
+    opacity: 0.8;
+}
+
+.modal-body {
+    border-radius: 0;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #ddd;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    background-color: #fff;
+    border-radius: 8px !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--brand-beige);
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.form-label {
+    color: var(--brand-teal);
+    letter-spacing: 0.5px;
+}
+
+#formSuccessMessage i {
+    font-size: 4rem;
+    color: var(--brand-sage) !important;
+}
+
+.modal-content {
+    border-radius: 12px !important;
+    overflow: hidden;
+}
