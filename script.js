@@ -35,20 +35,26 @@ window.addEventListener('DOMContentLoaded', event => {
 
     const updateActiveNav = () => {
         let current = '';
-        const scrollPosition = window.scrollY + 100; // Offset for navbar
+        const offset = 150; // Larger offset for mobile/scrolling
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
+            const rect = section.getBoundingClientRect();
+            const id = section.getAttribute('id');
+            // If the top of the section is near the top of the viewport
+            if (id && rect.top <= offset && rect.bottom >= offset) {
+                current = id;
             }
         });
+
+        // Force Home active when at the very top
+        if (window.scrollY < 50) {
+            current = 'home';
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');
             const href = link.getAttribute('href').substring(1);
-            if (href === current || (current === 'page-top' && href === '')) {
+            if (href === current) {
                 link.classList.add('active');
             }
         });
@@ -57,15 +63,38 @@ window.addEventListener('DOMContentLoaded', event => {
     window.addEventListener('scroll', updateActiveNav);
     updateActiveNav(); // Initial call
 
-    // Collapse responsive navbar when toggler is visible
+    // Navbar Toggler
     const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
+
+    // Smooth scroll for nav links and brand
+    const scrollLinks = document.querySelectorAll('#navbarResponsive .nav-link, .navbar-brand');
+    scrollLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    // Custom smooth scroll to account for fixed navbar
+                    const offset = 70;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = targetElement.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+
+                    // Collapse navbar on mobile
+                    const bsCollapse = bootstrap.Collapse.getInstance(document.getElementById('navbarResponsive'));
+                    if (bsCollapse) {
+                        bsCollapse.hide();
+                    } else if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none') {
+                        navbarToggler.click();
+                    }
+                }
             }
         });
     });
